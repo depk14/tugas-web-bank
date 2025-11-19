@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Mandiri</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f7fa;
+        }
+
+        header {
+            background-color: #003399;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+
+        /* === SIDEBAR BLUE CORPORATE === */
+        #sidebar {
+            position: fixed;
+            left: -300px;
+            top: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(180deg, #003399, #001f66);
+            padding-top: 75px;
+            transition: 0.35s ease;
+            z-index: 1000;
+            box-shadow: 3px 0 10px rgba(0,0,0,0.3);
+        }
+
+        #sidebar button {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 85%;
+            margin: 12px auto;
+            padding: 14px;
+            font-size: 16px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        #sidebar button:hover {
+            background-color: rgba(255,255,255,0.25);
+            transform: translateX(6px);
+        }
+
+        /* Overlay gelap */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 900;
+        }
+
+        /* Tombol hamburger modern */
+        .menu-btn {
+            background-color: #0044cc;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.25s;
+        }
+
+        .menu-btn:hover {
+            background-color: #002a80;
+            transform: scale(1.05);
+        }
+
+        .container {
+    max-width: 1100px;   /* sebelumnya 900px */
+    width: 90%;          /* biar responsif */
+    margin: 30px auto;
+    background-color: white;
+    border-radius: 12px;
+    padding: 35px;       /* padding lebih besar */
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
+
+        h2 {
+            color: #003399;
+        }
+
+        section {
+            display: none;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #003399;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+        /* Footer selalu di bawah */
+body, html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
+/* Perkecil gambar logo */
+section img {
+    width: 45%;         /* ukuran bisa diubah 30–60% */
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bank Mandiri</h1>
+    <p>Terdepan, Terpercaya, Tumbuh Bersama Anda</p>
+</header>
+
+<!-- SIDEBAR -->
+<div id="sidebar">
+    <button onclick="tampilkanHalaman('tentang')">📘 Tentang Kami</button>
+    <button onclick="tampilkanHalaman('layanan')">🛠️ Layanan</button>
+    <button onclick="tampilkanHalaman('kontak')">☎️ Kontak</button>
+</div>
+
+<!-- Overlay -->
+<div id="overlay" onclick="tutupSidebar()"></div>
+
+<div class="container" id="home">
+    <h2>Selamat Datang di Website Bank Mandiri</h2>
+    <p>Silakan tekan tombol di bawah untuk membuka menu.</p>
+    <button class="menu-btn" onclick="bukaSidebar()">☰ Buka Menu</button>
+</div>
+
+<!-- Halaman Tentang Kami -->
+<section id="tentang" class="container">
+    <h2>Tentang Bank Mandiri</h2>
+    <img src="mandiri.png.png" alt="Logo Bank Mandiri">
+    <p>
+        Bank Mandiri adalah salah satu bank terbesar di Indonesia yang berdiri sejak tahun 1998.
+        Bank ini merupakan hasil penggabungan empat bank milik pemerintah.
+    </p>
+    <button onclick="kembali()">⬅ Kembali ke Menu</button>
+</section>
+
+<!-- Halaman Layanan -->
+<section id="layanan" class="container">
+    <h2>Layanan Kami</h2>
+    <ul>
+        <li>Tabungan Mandiri</li>
+        <li>Kartu Kredit Mandiri</li>
+        <li>Mandiri Online Banking</li>
+        <li>Pinjaman & Investasi</li>
+        <li>Layanan Bisnis & Korporasi</li>
+    </ul>
+    <button onclick="kembali()">⬅ Kembali ke Menu</button>
+</section>
+
+<!-- Halaman Kontak -->
+<section id="kontak" class="container">
+    <h2>Kontak Kami</h2>
+    <p>Email: info@bankmandiri.co.id</p>
+    <p>Telepon: 14000</p>
+    <p>Alamat: Jl. Jenderal Gatot Subroto Kav. 36-38, Jakarta 12190</p>
+    <button onclick="kembali()">⬅ Kembali ke Menu</button>
+</section>
+
+<footer>
+    <p>&copy; 2025 Bank Mandiri. Semua Hak Dilindungi.</p>
+</footer>
+
+<script>
+    function bukaSidebar() {
+        document.getElementById("sidebar").style.left = "0";
+        document.getElementById("overlay").style.display = "block";
+    }
+
+    function tutupSidebar() {
+        document.getElementById("sidebar").style.left = "-300px";
+        document.getElementById("overlay").style.display = "none";
+    }
+
+    function tampilkanHalaman(id) {
+        tutupSidebar();
+        document.getElementById("home").style.display = "none";
+        document.getElementById("tentang").style.display = "none";
+        document.getElementById("layanan").style.display = "none";
+        document.getElementById("kontak").style.display = "none";
+
+        document.getElementById(id).style.display = "block";
+        window.scrollTo(0, 0);
+    }
+
+    function kembali() {
+        document.getElementById("home").style.display = "block";
+        document.getElementById("tentang").style.display = "none";
+        document.getElementById("layanan").style.display = "none";
+        document.getElementById("kontak").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
